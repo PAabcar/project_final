@@ -1,1 +1,19 @@
+#Datos
+print("Ingrese sus datos")
+name = input("Nombre: ")
+surname = input("Apellido Paterno: ")
+surname_2 = input ("Apellido Materno: ")
+destination = input("Ingrese la dirección de su destino: ")
+district = input("Distrito hacia donde se dirije: ")
 
+#Clases
+class Passenger:
+    def __init__(self, name, surname, surname_2, destination, district, fare):
+        self.full_name = f"{name} {surname} {surname_2}"
+        self.destination = destination
+        self.district = district
+        self.fare = fare
+        self.status = 'esperando por un taxi'
+
+class Taxi:     
+    pass    

@@ -1,0 +1,44 @@
+import random
+import string
+#Generar una placa aleatoria
+def generar_alfanumerico(longitud):
+    caracteres = string.ascii_letters + string.digits  # Letras y dígitos
+    alfanumerico = ''.join(random.choice(caracteres) for _ in range(longitud))
+    return alfanumerico
+
+#Datos
+def datos():
+    print("Ingrese sus datos")
+    name = input("Nombre: ")
+    surname = input("Apellido Paterno: ")
+    surname_2 = input ("Apellido Materno: ")
+    destination = input("Ingrese la dirección de su destino: ")
+    district = input("Distrito hacia donde se dirije: ")
+    return Passenger(name,surname,surname_2,destination,district, fare=None)
+#Clase pasajero
+class Passenger:
+    def __init__(self, name, surname, surname_2, destination, district, fare):
+        self.name = name
+        self.surname=surname
+        self.surname_2=surname_2
+        self.destination = destination
+        self.district = district
+        self.fare = fare
+#Clase taxi
+class Taxi:
+    def __init__(self, placa, fare, time):
+        self.placa=placa
+        self.fare=fare
+        self.time=time
+#Función principal
+if __name__ == "__main__":
+    while True:
+        persona1 = datos()
+        print("Sus datos son: ")
+        print(f"Nombre: {persona1.name}, Apellidos: {persona1.surname} {persona1.surname_2}, Destino: {persona1.destination}, Distrito: {persona1.district}")
+        respuesta = input("¿Confirma que estos son sus datos? (s/n): ")
+        if respuesta.lower() != 'n':
+            break
+    placa_taxi = generar_alfanumerico(6)
+    taxi1 = Taxi(placa_taxi.upper(), fare=None, time=None)
+    print(f"La placa de tu taxi es: {taxi1.placa}")
